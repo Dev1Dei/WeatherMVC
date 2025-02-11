@@ -1,0 +1,63 @@
+# Ignore build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.vsix
+*.nupkg
+*.snupkg
+*.log
+*.cache
+*.tmp
+*.temp
+
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Rider & JetBrains settings
+.idea/
+*.iml
+
+# Ignore Secrets (appsettings.json)
+appsettings.json
+appsettings.*.json
+
+# Ignore npm & node_modules (if using frontend libraries)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Ignore Publish artifacts
+publish/
+out/
+dist/
+
+# Ignore ReSharper
+_ReSharper.Caches/
+*.DotSettings.user
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ignore Debugging & Temp Files
+*.bak
+*.swp
+*.swo
+*.sln.ide
+*.sln.cache
+
+# Ignore Deployment files
+*.publishsettings
+*.deploy
+*.pfx

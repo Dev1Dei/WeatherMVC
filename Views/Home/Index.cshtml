@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "WeatherMVC";
+}
+
+<div class="text-center">
+    <div class="display-4 mt-5 text-white">
+        <span class="">Welcome to </span><span class="title">@ViewData["Title"]</span>
+    </div>
+    <div class="mt-2 text-white">
+        <span class="display-7 text-white">Enter a city to get started!</span>
+    </div>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+    }
+    <form method="post" asp-controller="Weather" asp-action="GetWeatherInCity">
+        <div class="mt-5 text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="input-group mb-2">
+                            <input type="text" name="city" class="form-control" placeholder="City name" aria-label="City name">
+                            <button type="submit" class="btn btn-outline-light mx-2">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    @if (Model != null)
+    {
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card text-light bg-dark mt-3">
+                        <div class="card-header text-center">
+                            <h3>@Model.Location.Name, @Model.Location.Country</h3>
+                            <p class="small text-muted">@Model.Location.Localtime</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <img src="https:@Model.Current.Condition.Icon" alt="@Model.Current.Condition.Text" class="mb-2">
+                            <h4>@Model.Current.Condition.Text</h4>
+                            <p class="display-4"><strong>@Model.Current.TempC°C</strong></p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <p>💨 Wind: @Model.Current.WindKph kph</p>
+                            <p>🌫️ AQI: @Model.Current.AirQuality.Pm2_5 (PM2.5)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
